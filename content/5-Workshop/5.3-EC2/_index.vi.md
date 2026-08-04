@@ -12,11 +12,32 @@ Trong phần này, một máy chủ ảo Amazon EC2 sẽ được chuẩn bị �
 
 Các mục tiêu chính của phần này bao gồm:
 
++ Khởi chạy và cấu hình máy chủ EC2.
 + Xem xét Security Group của EC2.
 + Kiểm tra cấu hình EC2 instance.
 + Khởi động EC2 instance.
 + Kết nối tới EC2 instance.
 + Cài đặt Docker và chuẩn bị môi trường chạy ứng dụng.
+
+#### Khởi chạy máy chủ ảo Amazon EC2
+
+1. Truy cập **EC2 Console** -> **Instances** và chọn **Launch instance**.
+2. Thiết lập mục Tên và thẻ (Name and tags) là `aws-c8n`.
+3. Chọn hệ điều hành **Amazon Linux 2023** làm Amazon Machine Image (AMI) và loại instance là `t3.micro`.
+
+![Khởi tạo cài đặt cơ bản EC2](/images/5-Workshop/5.3-EC2/01-launch-basic.png)
+*Hình 1: Đặt tên EC2, chọn AMI và loại instance.*
+
+4. Chọn hoặc khởi tạo cặp khóa (key pair) truy cập (ví dụ: `cenfra-ms`).
+5. Tại mục cài đặt mạng (**Network settings**):
+   * Chọn VPC tùy chỉnh và subnet của bạn.
+   * Kích hoạt mục tự động gán IP công cộng (**Auto-assign public IP** -> **Enable**).
+   * Tại phần Tường lửa (security groups), chọn **Select existing security group** và chọn security group mặc định (default).
+
+![Thiết lập mạng cho EC2](/images/5-Workshop/5.3-EC2/02-launch-network.png)
+*Hình 2: Cấu hình key pair, mạng VPC tùy chỉnh và security group.*
+
+---
 
 #### Security Group của EC2
 

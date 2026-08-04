@@ -12,11 +12,32 @@ In this section, an Amazon EC2 instance is prepared as the backend server for th
 
 The main goals of this section are:
 
++ Launch and configure the EC2 instance.
 + Review the EC2 security group.
 + Check the EC2 instance configuration.
 + Start the EC2 instance.
 + Connect to the instance.
 + Install Docker and prepare the application runtime.
+
+#### Launch Amazon EC2 Instance
+
+1. Navigate to the **EC2 Console** -> **Instances** and click **Launch instance**.
+2. Set the Name and tags to `aws-c8n`.
+3. Select **Amazon Linux 2023** as the Amazon Machine Image (AMI) and set Instance type to `t3.micro`.
+
+![Launch instance basic settings](/images/5-Workshop/5.3-EC2/01-launch-basic.png)
+*Figure 1: Setting EC2 name, AMI, and instance type.*
+
+4. Select or create a key pair (e.g., `cenfra-ms`).
+5. Under **Network settings**:
+   * Select your custom VPC and subnet.
+   * Enable **Auto-assign public IP**.
+   * Under **Firewall (security groups)**, choose **Select existing security group** and select the default security group.
+
+![EC2 Network Settings](/images/5-Workshop/5.3-EC2/02-launch-network.png)
+*Figure 2: Configuring key pair, custom VPC network, and security group.*
+
+---
 
 #### EC2 security group
 

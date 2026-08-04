@@ -1,19 +1,27 @@
 ---
-title : "Giới thiệu"
+title : "Tổng quan & Kiến trúc"
 date : 2024-01-01 
-weight : 1
+weight : 1 
 chapter : false
 pre : " <b> 5.1. </b> "
 ---
 
-#### Giới thiệu về VPC Endpoint
+#### Tổng quan bài thực hành CenFra-MS
 
-+ Điểm cuối VPC (endpoint) là thiết bị ảo. Chúng là các thành phần VPC có thể mở rộng theo chiều ngang, dự phòng và có tính sẵn sàng cao. Chúng cho phép giao tiếp giữa tài nguyên điện toán của bạn và dịch vụ AWS mà không gây ra rủi ro về tính sẵn sàng.
-+ Tài nguyên điện toán đang chạy trong VPC có thể truy cập Amazon S3 bằng cách sử dụng điểm cuối Gateway. Interface Endpoint  PrivateLink có thể được sử dụng bởi tài nguyên chạy trong VPC hoặc tại TTDL.
+Trong bài lab này, bạn sẽ học cách triển khai ứng dụng backend Java đã được đóng gói container (**CenFra-MS**, hệ thống quản lý nhượng quyền và bếp trung tâm) lên một hạ tầng điện toán đám mây AWS bảo mật, có khả năng giám sát logs và có tính sẵn sàng cao.
 
-#### Tổng quan về workshop
-Trong workshop này, bạn sẽ sử dụng hai VPC.
-+ **"VPC Cloud"** dành cho các tài nguyên cloud như Gateway endpoint và EC2 instance để kiểm tra.
-+ **"VPC On-Prem"** mô phỏng môi trường truyền thống như nhà máy hoặc trung tâm dữ liệu của công ty. Một EC2 Instance chạy phần mềm StrongSwan VPN đã được triển khai trong "VPC On-prem" và được cấu hình tự động để thiết lập đường hầm VPN Site-to-Site với AWS Transit Gateway. VPN này mô phỏng kết nối từ một vị trí tại TTDL (on-prem) với AWS cloud. Để giảm thiểu chi phí, chỉ một phiên bản VPN được cung cấp để hỗ trợ workshop này. Khi lập kế hoạch kết nối VPN cho production workloads của bạn, AWS khuyên bạn nên sử dụng nhiều thiết bị VPN để có tính sẵn sàng cao.
+Các bước thực hiện bao gồm thiết lập quy tắc bảo mật mạng, khởi tạo máy chủ ảo Amazon EC2, cài đặt Docker, triển khai ứng dụng backend thông qua Docker Compose, cấu hình bộ cân bằng tải Application Load Balancer (ALB), yêu cầu chứng chỉ bảo mật SSL/TLS qua AWS Certificate Manager (ACM), định tuyến tên miền bằng Route 53, phân phối nội dung qua mạng lưới CloudFront CDN và chuyển tiếp logs tập trung về CloudWatch.
 
-![overview](/images/5-Workshop/5.1-Workshop-overview/diagram1.png)
+#### Sơ đồ kiến trúc
+
+Hệ thống tuân thủ theo sơ đồ kiến trúc dưới đây:
+
+![CenFra-MS AWS Architecture](/images/2-Proposal/cenframs_architecture.png?v=2)
+
+#### Các mục tiêu chính
+
+* **Bước 5.3 (Triển khai EC2)**: Khởi tạo máy chủ EC2, cài đặt Docker & Docker Compose và chạy container backend CenFra-MS.
+* **Bước 5.4 (Application Load Balancer)**: Thiết lập Target Group (cổng 8080) và cấu hình bộ cân bằng tải ALB để phân phối lưu lượng truy cập HTTP.
+* **Bước 5.5 (Tích hợp Route 53 & CloudFront CDN)**: Định tuyến tên miền tùy chỉnh và cấu hình CDN phân phối nội dung bảo mật qua HTTPS.
+* **Bước 5.6 (Giám sát Logs qua CloudWatch)**: Cấu hình đẩy logs container Docker từ EC2 về Amazon CloudWatch Logs để giám sát tập trung.
+* **Bước 5.7 (Dọn dẹp tài nguyên)**: Giải phóng và xóa bỏ các tài nguyên AWS đã tạo để tránh phát sinh chi phí.

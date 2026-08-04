@@ -1,9 +1,9 @@
 ---
 title : "Clean Up CenFra-MS Resources"
 date : 2024-01-01
-weight : 11
+weight : 7
 chapter : false
-pre : " <b> 5.11. </b> "
+pre : " <b> 5.7. </b> "
 ---
 Congratulations on completing this workshop! 
 

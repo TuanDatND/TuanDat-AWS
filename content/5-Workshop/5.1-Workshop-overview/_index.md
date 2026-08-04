@@ -1,18 +1,27 @@
 ---
-title : "Introduction"
+title : "Overview & Architecture"
 date : 2024-01-01 
 weight : 1 
 chapter : false
 pre : " <b> 5.1. </b> "
 ---
 
-#### VPC endpoints
-+ **VPC endpoints** are virtual devices. They are horizontally scaled, redundant, and highly available VPC components. They allow communication between your compute resources and AWS services without imposing availability risks.
-+ Compute resources running in VPC can access  **Amazon S3**  using a Gateway endpoint. PrivateLink interface endpoints can be used by compute resources running in VPC or on-premises.
+#### CenFra-MS Workshop Overview
 
-#### Workshop overview
-In this workshop, you will use two VPCs. 
-+ **"VPC Cloud"** is for cloud resources such as a  **Gateway endpoint** and an EC2 instance to test with. 
-+ **"VPC On-Prem"** simulates an on-premises environment such as a factory or corporate datacenter. An EC2 instance running strongSwan VPN software has been deployed in "VPC On-prem" and automatically configured to establish a Site-to-Site VPN tunnel with AWS Transit Gateway. This VPN simulates connectivity from an on-premises location to the AWS cloud. To minimize costs, only one VPN instance is provisioned to support this workshop. When planning VPN connectivity for your production workloads, AWS recommends using multiple VPN devices for high availability.
+In this workshop, you will learn how to deploy a containerized Java backend application (**CenFra-MS**, a franchise and central kitchen management system) on a secure, observable, and highly available AWS cloud architecture.
 
-![overview](/images/5-Workshop/5.1-Workshop-overview/diagram1.png)
+The implementation details include setting up network security rules, launching an Amazon EC2 instance, installing Docker, deploying the backend application via Docker Compose, provisioning an Application Load Balancer (ALB), requesting SSL certificates via AWS Certificate Manager (ACM), routing traffic with Route 53, distributing content via CloudFront CDN, and forwarding logs to CloudWatch.
+
+#### Target Architecture
+
+The application follows the architecture below:
+
+![CenFra-MS AWS Architecture](/images/2-Proposal/cenframs_architecture.png?v=2)
+
+#### Main Goals
+
+* **Step 5.3 (EC2 Deployment)**: Launch an Amazon EC2 instance, install Docker & Docker Compose, and pull the CenFra-MS backend container.
+* **Step 5.4 (Application Load Balancer)**: Set up a Target Group on port `8080` and provision an ALB to balance public HTTP traffic.
+* **Step 5.5 (Route 53 & CloudFront CDN)**: Configure DNS resolution and CloudFront CDN with SSL termination for secure HTTPS delivery.
+* **Step 5.6 (CloudWatch Logs)**: Set up log shipping from Docker containers on EC2 to Amazon CloudWatch for centralized monitoring.
+* **Step 5.7 (Resource Clean Up)**: Terminate resources to prevent unnecessary AWS charges.

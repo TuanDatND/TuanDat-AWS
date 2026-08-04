@@ -1,9 +1,9 @@
 ---
 title : "Dọn dẹp tài nguyên CenFra-MS"
 date : 2024-01-01
-weight : 11
+weight : 7
 chapter : false
-pre : " <b> 5.11. </b> "
+pre : " <b> 5.7. </b> "
 ---
 Xin chúc mừng bạn đã hoàn thành xong workshop này!
 

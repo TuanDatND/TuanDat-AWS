@@ -1,9 +1,9 @@
 ---
 title : "Tích hợp Route 53 & CloudFront CDN"
 date : 2024-01-01 
-weight : 9 
+weight : 5 
 chapter : false
-pre : " <b> 5.9. </b> "
+pre : " <b> 5.5. </b> "
 ---
 
 #### Bước 1: Cấu hình Route 53 Hosted Zone

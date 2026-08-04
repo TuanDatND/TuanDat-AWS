@@ -4,6 +4,7 @@ date: 2024-01-15
 weight: 3
 chapter: false
 pre: " <b> 1.3. </b> "
+menuTitle: "Tu?n 3"
 ---
 
 ### Mục tiêu tuần 3:

@@ -4,6 +4,7 @@ date: 2024-02-26
 weight: 9
 chapter: false
 pre: " <b> 1.9. </b> "
+menuTitle: "Week 9 Worklog"
 ---
 
 ### Week 9 Objectives:

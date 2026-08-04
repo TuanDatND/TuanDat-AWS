@@ -4,6 +4,7 @@ date: 2024-03-18
 weight: 12
 chapter: false
 pre: " <b> 1.12. </b> "
+menuTitle: "Week 12 Worklog"
 ---
 
 ### Week 12 Objectives:

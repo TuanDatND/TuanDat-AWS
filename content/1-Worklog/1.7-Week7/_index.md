@@ -4,6 +4,7 @@ date: 2024-02-12
 weight: 7
 chapter: false
 pre: " <b> 1.7. </b> "
+menuTitle: "Week 7 Worklog"
 ---
 
 ### Week 7 Objectives:

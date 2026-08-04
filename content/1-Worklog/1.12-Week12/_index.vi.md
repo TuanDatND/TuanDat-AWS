@@ -4,6 +4,7 @@ date: 2024-03-18
 weight: 12
 chapter: false
 pre: " <b> 1.12. </b> "
+menuTitle: "Tu?n 12"
 ---
 
 ### Mục tiêu tuần 12:

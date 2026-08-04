@@ -4,6 +4,7 @@ date: 2024-02-05
 weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
+menuTitle: "Tu?n 6"
 ---
 
 ### Mục tiêu tuần 6:

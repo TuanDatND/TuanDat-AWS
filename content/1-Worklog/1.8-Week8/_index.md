@@ -4,6 +4,7 @@ date: 2024-02-19
 weight: 8
 chapter: false
 pre: " <b> 1.8. </b> "
+menuTitle: "Week 8 Worklog"
 ---
 
 ### Week 8 Objectives:

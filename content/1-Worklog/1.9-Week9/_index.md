@@ -1,7 +1,7 @@
 ---
 title: "Week 9 Worklog: Amazon Route 53 DNS & CloudFront CDN"
 date: 2024-02-26
-weight: 1
+weight: 9
 chapter: false
 pre: " <b> 1.9. </b> "
 ---

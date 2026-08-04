@@ -1,7 +1,7 @@
 ---
 title: "Week 10 Worklog: AWS Serverless & Messaging Basics (Lambda, SQS, SNS)"
 date: 2024-03-04
-weight: 1
+weight: 10
 chapter: false
 pre: " <b> 1.10. </b> "
 ---

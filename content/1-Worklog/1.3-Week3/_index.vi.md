@@ -1,7 +1,7 @@
 ---
 title: "Worklog Tuần 3: Tìm hiểu Amazon EBS Storage & Tạo Custom AMI"
 date: 2024-01-15
-weight: 1
+weight: 3
 chapter: false
 pre: " <b> 1.3. </b> "
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Worklog Tuần 11: Triển khai Dự án Kitchen Hub - Phần 1: Hạ tầng 3-Tier cốt lõi"
 date: 2024-03-11
-weight: 1
+weight: 11
 chapter: false
 pre: " <b> 1.11. </b> "
 ---

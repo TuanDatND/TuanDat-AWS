@@ -1,7 +1,7 @@
 ---
 title: "Worklog Tuần 8: Tìm hiểu Amazon CloudWatch & CloudTrail (Giám sát & Ghi log)"
 date: 2024-02-19
-weight: 1
+weight: 8
 chapter: false
 pre: " <b> 1.8. </b> "
 ---

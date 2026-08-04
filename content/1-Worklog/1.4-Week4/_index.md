@@ -1,7 +1,7 @@
 ---
 title: "Week 4 Worklog: Amazon S3 Basics & Static Website Hosting"
 date: 2024-01-22
-weight: 1
+weight: 4
 chapter: false
 pre: " <b> 1.4. </b> "
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Week 8 Worklog: Amazon CloudWatch & CloudTrail Monitoring"
 date: 2024-02-19
-weight: 1
+weight: 8
 chapter: false
 pre: " <b> 1.8. </b> "
 ---

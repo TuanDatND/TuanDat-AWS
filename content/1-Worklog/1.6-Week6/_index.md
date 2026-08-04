@@ -1,7 +1,7 @@
 ---
 title: "Week 6 Worklog: Amazon RDS Basics (MySQL Database & Backups)"
 date: 2024-02-05
-weight: 1
+weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
 ---

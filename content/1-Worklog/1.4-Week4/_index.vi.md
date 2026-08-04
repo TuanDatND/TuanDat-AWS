@@ -1,7 +1,7 @@
 ---
 title: "Worklog Tuần 4: Tìm hiểu Amazon S3 & Host Website tĩnh (Static Web)"
 date: 2024-01-22
-weight: 1
+weight: 4
 chapter: false
 pre: " <b> 1.4. </b> "
 ---

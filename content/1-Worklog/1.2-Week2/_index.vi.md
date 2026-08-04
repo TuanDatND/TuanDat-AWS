@@ -1,7 +1,7 @@
 ---
 title: "Worklog Tuần 2: Tìm hiểu Amazon EC2 (Tạo máy chủ, Kết nối SSH & User Data)"
 date: 2024-01-08
-weight: 1
+weight: 2
 chapter: false
 pre: " <b> 1.2. </b> "
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Week 7 Worklog: Elastic Load Balancing (ALB Basics & Health Checks)"
 date: 2024-02-12
-weight: 1
+weight: 7
 chapter: false
 pre: " <b> 1.7. </b> "
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Week 11 Worklog: Kitchen Hub Project - Part 1: Core 3-Tier Infrastructure Setup"
 date: 2024-03-11
-weight: 1
+weight: 11
 chapter: false
 pre: " <b> 1.11. </b> "
 ---

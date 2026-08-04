@@ -1,7 +1,7 @@
 ---
 title: "Worklog Tuần 12: Triển khai Dự án Kitchen Hub - Phần 2: Cân bằng tải, Kiểm thử & Báo cáo"
 date: 2024-03-18
-weight: 1
+weight: 12
 chapter: false
 pre: " <b> 1.12. </b> "
 ---

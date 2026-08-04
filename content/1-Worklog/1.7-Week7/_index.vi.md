@@ -1,7 +1,7 @@
 ---
 title: "Worklog Tuần 7: Tìm hiểu Elastic Load Balancer (ALB & Target Groups)"
 date: 2024-02-12
-weight: 1
+weight: 7
 chapter: false
 pre: " <b> 1.7. </b> "
 ---

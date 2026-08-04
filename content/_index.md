@@ -28,7 +28,7 @@ chapter: false
 
 &emsp; **Internship Duration:** From 11/05/2026 to 31/07/2026
 
-![Your profile picture](/images/avatar.png)
+<img src="/images/avatar.jpg" width="180" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.15); margin: 15px 0; border: 2px solid #ff9900;" alt="Nguyen Dinh Tuan Dat Avatar" />
 
 ### Report Content
 

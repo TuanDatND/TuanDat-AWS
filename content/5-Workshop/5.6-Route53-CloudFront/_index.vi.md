@@ -1,9 +1,9 @@
 ---
 title : "Tích hợp Route 53 & CloudFront CDN"
 date : 2024-01-01 
-weight : 5 
+weight: 6 
 chapter : false
-pre : " <b> 5.5. </b> "
+pre : " <b> 5.6. </b> "
 ---
 
 #### Bước 1: Cấu hình Route 53 Hosted Zone
@@ -147,13 +147,13 @@ CDN được sử dụng thông qua Route 53: Namecheap chỉ giữ vai trò đ�
 ##### 5.1. Truy cập Trang Đăng nhập của ứng dụng
 Truy cập đường dẫn `https://cenfra-ms.tuandat.space/login`. Bạn sẽ thấy màn hình đăng nhập tập trung của hệ thống **Pizza Five Guys - Central kitchen management** hiển thị thành công.
 
-![Trang đăng nhập ứng dụng](/images/5-Workshop/5.5-Route53-CloudFront/01-login-page.png)
+![Trang đăng nhập ứng dụng](/images/5-Workshop/5.6-Route53-CloudFront/01-login-page.png)
 *Hình 5: Giao diện đăng nhập hệ thống Pizza Five Guys.*
 
 ##### 5.2. Trang Tổng quan quản lý (Dashboard)
 Nhập thông tin tài khoản và đăng nhập. Hệ thống sẽ chuyển hướng bạn đến trang Dashboard tổng quan hiển thị các thông tin về tồn kho, đơn hàng hôm nay và danh sách sản phẩm lấy từ cơ sở dữ liệu RDS PostgreSQL.
 
-![Trang tổng quan Dashboard](/images/5-Workshop/5.5-Route53-CloudFront/02-dashboard.png)
+![Trang tổng quan Dashboard](/images/5-Workshop/5.6-Route53-CloudFront/02-dashboard.png)
 *Hình 6: Giao diện tổng quan hệ thống Bếp trung tâm.*
 
 ##### 5.3. Thêm sản phẩm mới và tải ảnh lên S3
@@ -161,17 +161,17 @@ Nhập thông tin tài khoản và đăng nhập. Hệ thống sẽ chuyển hư
 2. Chọn **Thêm sản phẩm**. Nhập tên sản phẩm `Sprite lon`, danh mục `Prepared Food`, đơn vị tính `pack`, đơn giá `20000`.
 3. Chọn một ảnh tải lên và chọn **Thêm sản phẩm**.
 
-![Hộp thoại thêm sản phẩm](/images/5-Workshop/5.5-Route53-CloudFront/03-add-product.png)
+![Hộp thoại thêm sản phẩm](/images/5-Workshop/5.6-Route53-CloudFront/03-add-product.png)
 *Hình 7: Form nhập thông tin sản phẩm và tải ảnh minh họa.*
 
 ##### 5.4. Xác minh sản phẩm tạo thành công
 Sản phẩm vừa tạo sẽ xuất hiện ngay trong danh sách quản lý sản phẩm của hệ thống, xác nhận dữ liệu đã được ghi thành công xuống database PostgreSQL.
 
-![Danh sách sản phẩm mới thêm](/images/5-Workshop/5.5-Route53-CloudFront/04-product-list.png)
+![Danh sách sản phẩm mới thêm](/images/5-Workshop/5.6-Route53-CloudFront/04-product-list.png)
 *Hình 8: Danh sách sản phẩm cập nhật món Sprite lon thành công.*
 
 ##### 5.5. Xác minh tệp tin ảnh lưu trữ trên Amazon S3
 Nhấp chuột phải vào ảnh sản phẩm vừa thêm và mở trong tab mới. Bạn sẽ thấy địa chỉ URL của ảnh chỉ trực tiếp về S3 bucket của bạn (`https://aws-c8n-s3.s3.us-west-2.amazonaws.com/products/...`). Điều này chứng minh ứng dụng backend đã kết nối và lưu trữ file tĩnh thành công lên Amazon S3.
 
-![URL ảnh trên S3](/images/5-Workshop/5.5-Route53-CloudFront/05-s3-image.png)
+![URL ảnh trên S3](/images/5-Workshop/5.6-Route53-CloudFront/05-s3-image.png)
 *Hình 9: Ảnh sản phẩm được lưu trữ và tải trực tiếp từ Amazon S3 bucket.*

@@ -48,9 +48,6 @@ A working directory is created for the application and a `docker-compose.yml` fi
 
 ![Prepare Docker Compose](/images/5-Workshop/5.3-EC2/docker-compose-file.png)
 
-{{% notice warning %}}
-Before publishing screenshots to a public repository, make sure terminal screenshots do not expose passwords, tokens, database credentials, or private keys.
-{{% /notice %}}
 
 #### IAM role support
 

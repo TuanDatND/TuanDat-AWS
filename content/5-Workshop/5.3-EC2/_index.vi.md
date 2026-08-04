@@ -48,9 +48,6 @@ Một thư mục làm việc được tạo cho ứng dụng và tệp `docker-c
 
 ![Prepare Docker Compose](/images/5-Workshop/5.3-EC2/docker-compose-file.png)
 
-{{% notice warning %}}
-Trước khi xuất bản ảnh chụp màn hình lên kho lưu trữ công khai, hãy đảm bảo ảnh chụp màn hình terminal không làm lộ mật khẩu, mã token, thông tin đăng nhập cơ sở dữ liệu hoặc khóa riêng tư (private keys).
-{{% /notice %}}
 
 #### Hỗ trợ IAM role
 

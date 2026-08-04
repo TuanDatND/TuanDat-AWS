@@ -5,9 +5,6 @@ weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
 # Triển khai Ứng dụng Spring Boot chuẩn Production trên AWS
 ## Xây dựng Hạ tầng Đám mây Bảo mật, Giám sát và Tự động hóa cho hệ thống CenFra-MS

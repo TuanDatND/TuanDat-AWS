@@ -6,23 +6,36 @@ chapter: false
 pre: " <b> 3.1. </b> "
 ---
 
-# SESSION POLICIES TRONG AMAZON EKS POD IDENTITY
+# [Góc Kỹ Thuật] Xây dựng REST API Multi-Region với Aurora DSQL: Cách xử lý đụng độ dữ liệu và quản lý credential
 
-Amazon EKS Pod Identity vừa bổ sung tính năng session policies, cho phép bạn thu hẹp quyền IAM một cách linh hoạt và chính xác cho từng pod mà không cần tạo thêm nhiều IAM roles riêng biệt. Đây là bước tiến quan trọng giúp áp dụng nguyên tắc least privilege hiệu quả hơn trong môi trường Kubernetes quy mô lớn.
+Chào anh chị và các bạn, gần đây khi làm hệ thống, mình có đọc một bài khá hay trên **AWS Database Blog** về việc kết hợp **Spring Boot** và **Amazon Aurora DSQL**. Bài toán đặt ra là: *Làm sao để chạy API ở nhiều khu vực (Multi-Region Active-Active) mà không gặp lỗi đồng bộ database?*
 
-Các điểm chính cần nắm:
+Các bạn làm Backend chắc đều biết vấn đề khi 2 request từ 2 Region khác nhau cùng update một dòng dữ liệu (ví dụ: trừ số lượng tồn kho). Nếu dùng Lock (khóa) truyền thống thì dễ sinh ra nghẽn connection, thậm chí Deadlock. Chưa kể việc đồng bộ mật khẩu DB giữa các node cũng phức tạp.
 
-* Session policy là một IAM policy inline được chỉ định khi tạo hoặc cập nhật Pod Identity association.
-* Quyền hiệu quả = intersection (giao) giữa permissions của IAM role và session policy → session policy chỉ có thể thu hẹp, không thể mở rộng quyền.
-* Giúp tránh tình trạng over-permissioning khi reuse chung một IAM role cho nhiều workloads có nhu cầu khác nhau.
-* Hỗ trợ cả same-account và cross-account (qua IAM role chaining).
-* Giảm đáng kể số lượng IAM roles cần quản lý, tránh chạm giới hạn quota IAM trong cluster lớn.
-* Cấu hình dễ dàng qua AWS Management Console, AWS CLI hoặc AWS SDK khi tạo association giữa Kubernetes ServiceAccount và IAM role.
+Việc kết hợp **Aurora DSQL** và **Spring Boot** có thể giải quyết bài toán này qua 3 điểm chính:
 
-Tính năng này đặc biệt hữu ích khi bạn có nhiều ứng dụng chạy trên cùng một IAM role nhưng cần giới hạn quyền khác nhau (ví dụ: một pod chỉ đọc S3 bucket cụ thể, pod khác chỉ gọi một số API nhất định).
+1. **Không cần Password tĩnh**: Bài viết dùng `DSQLConnector`. Công cụ này tự động xác thực bằng IAM Role, tự refresh token và mã hóa TLS. Dev không cần lưu hardcode password hay quản lý secret rắc rối nữa.
+2. **Xử lý đụng độ bằng Optimistic Concurrency Control (OCC)**: DSQL không dùng Lock. Khi có conflict xảy ra lúc commit, 1 request sẽ thành công, request còn lại nhận lỗi `40001` SQL state.
+3. **Kết hợp Spring Boot và HikariCP**: Thay vì báo lỗi `500` cho người dùng, chúng ta có thể xử lý ngầm như sau:
+   * Cấu hình `DsqlExceptionOverride` báo cho **HikariCP** giữ lại connection khi gặp lỗi `40001` vì nó vẫn đang hoạt động tốt.
+   * Dùng `@Retryable` của Spring bắt lỗi và tự động thử lại (retry) với độ trễ tăng dần (**Exponential backoff**). Kết quả là client vẫn nhận về HTTP `200 OK`.
 
-...Hình ảnh...
+---
 
-...Link...
+### Sơ đồ kiến trúc Multi-Region
 
-...Hướng dẫn...
+![Sơ đồ kiến trúc Aurora DSQL Multi-Region](/images/3-BlogsPosted/3.1-Blog1/aurora-dsql-architecture.png)
+*Hình 1: Triển khai Spring Boot hoạt động song song đa vùng (active-active) với Aurora DSQL.*
+
+---
+
+### Tóm lại:
+
+Kiến trúc này giúp các bạn tập trung vào Business Logic thay vì tốn thời gian xử lý hạ tầng DB. Nếu một Region gặp sự cố, Route 53 đẩy traffic sang Region kia, ứng dụng vẫn hoạt động bình thường mà không cần sửa code.
+
+Các bạn làm hệ thống tải cao có ai đã áp dụng thực tế cơ chế OCC kết hợp Spring Retry này chưa? Hiệu năng connection pool thực tế có hoạt động ổn định không? Cùng chia sẻ góc nhìn nhé! 👇
+
+---
+
+* **Link bài gốc tham khảo**: [AWS Database Blog](https://aws.amazon.com/blogs/database/build-a-spring-boot-rest-api-with-amazon-aurora-dsql/)
+* **Link bài đăng Facebook**: [AWS Study Group Facebook Post](https://www.facebook.com/photo?fbid=2093845508234493&set=gm.2199940367437590&idorvanity=660548818043427)

@@ -6,23 +6,36 @@ chapter: false
 pre: " <b> 3.1. </b> "
 ---
 
-# SESSION POLICIES IN AMAZON EKS POD IDENTITY
+# [Technical Corner] Building Multi-Region REST APIs with Aurora DSQL: Handling Data Conflict and Credential Management
 
-Amazon EKS Pod Identity has recently added the session policies feature, allowing you to narrow IAM permissions flexibly and precisely for each pod without needing to create many separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+Recently, while working on system architectures, I read an insightful article on the **AWS Database Blog** about combining **Spring Boot** and **Amazon Aurora DSQL**. The problem statement is: *How to run REST APIs across multiple regions (Multi-Region Active-Active) without database synchronization issues?*
 
-Key points to know:
+Backend developers know the classic challenge when two requests from different regions update the same data row at the same time (e.g., deducting product stock). Traditional locking mechanisms easily cause connection bottlenecks or even Deadlocks, not to mention the complexity of syncing database passwords between nodes.
 
-* A session policy is an inline IAM policy specified when creating or updating a Pod Identity association.
-* Effective permissions = intersection between the IAM role permissions and the session policy → the session policy can only narrow permissions, not expand them.
-* Helps avoid over-permissioning when reusing a single IAM role for multiple workloads with different needs.
-* Supports both same-account and cross-account (via IAM role chaining).
-* Significantly reduces the number of IAM roles that need to be managed, helping avoid hitting IAM quota limits in large clusters.
-* Easily configured through the AWS Management Console, AWS CLI, or AWS SDK when creating an association between a Kubernetes ServiceAccount and an IAM role.
+Combining **Aurora DSQL** with **Spring Boot** resolves this problem through three key mechanisms:
 
-This feature is especially useful when you have many applications running on the same IAM role but need different permission restrictions (for example: one pod only reads a specific S3 bucket, another pod only calls certain APIs).
+1. **No Static Passwords**: The architecture uses `DsqlConnector` which automatically authenticates using IAM Roles, handles token refreshes, and enforces TLS encryption. Developers no longer need to hardcode passwords or manage complex secrets.
+2. **Conflict Resolution using Optimistic Concurrency Control (OCC)**: DSQL does not use locks. When a conflict occurs during commit, one request succeeds while the other fails with a `40001` SQL state error.
+3. **Spring Boot and HikariCP Integration**: Instead of throwing a `500` error to users, we can handle it gracefully in the background:
+   * Configure `DsqlExceptionOverride` to tell **HikariCP** to keep the connection open when encountering error `40001` since the connection itself is still healthy.
+   * Use Spring's `@Retryable` annotation to catch the error and automatically retry the transaction using **Exponential Backoff**. As a result, the client still receives a clean `HTTP 200 OK` response.
 
-...Image...
+---
 
-...Link...
+### Multi-Region Architecture Diagram
 
-...Guide...
+![Aurora DSQL Multi-Region Architecture](/images/3-BlogsPosted/3.1-Blog1/aurora-dsql-architecture.png)
+*Figure 1: Spring Boot active-active multi-region deployment with Aurora DSQL.*
+
+---
+
+### Summary
+
+This architecture allows you to focus on business logic rather than database infrastructure. If a region goes down, Route 53 routes traffic to the other region, and the application continues to run normally without any code changes.
+
+For high-traffic systems, have you applied this OCC + Spring Retry mechanism in production? How does the connection pool perform in practice? Share your thoughts below! 👇
+
+---
+
+* **Original Reference Link**: [AWS Database Blog](https://aws.amazon.com/blogs/database/build-a-spring-boot-rest-api-with-amazon-aurora-dsql/)
+* **Facebook Post Link**: [AWS Study Group Facebook Post](https://www.facebook.com/photo?fbid=2093845508234493&set=gm.2199940367437590&idorvanity=660548818043427)

@@ -47,11 +47,9 @@ Các cuộc thảo luận và ví dụ thực tế được chia sẻ trong sự
 
 ### Một số hình ảnh tại sự kiện
 
-```carousel
 ![RAG Presentation Slide](/images/4-EventParticipated/4.2-Event2/rag-presentation.png)
-<!-- slide -->
+
 ![Fighter Ready Room Classroom View](/images/4-EventParticipated/4.2-Event2/classroom-view.jpg)
-```
 *Hình 1: Trình bày công nghệ RAG và hoạt động tương tác trong lớp học.*
 
 ---

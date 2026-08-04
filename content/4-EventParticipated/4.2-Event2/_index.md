@@ -47,11 +47,9 @@ The discussions and examples shared during the event motivated me to continue im
 
 ### Some event photos
 
-```carousel
 ![RAG Presentation Slide](/images/4-EventParticipated/4.2-Event2/rag-presentation.png)
-<!-- slide -->
+
 ![Fighter Ready Room Classroom View](/images/4-EventParticipated/4.2-Event2/classroom-view.jpg)
-```
 *Figure 1: Presentations and interactive classroom demonstrations during the event.*
 
 ---

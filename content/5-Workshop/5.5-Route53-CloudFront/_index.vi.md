@@ -137,3 +137,41 @@ CDN được sử dụng thông qua Route 53: Namecheap chỉ giữ vai trò đ�
 3. Bật công tắc **Alias** (Bản ghi bí danh).
 4. Tại mục **Route traffic to**, chọn **Alias to CloudFront distribution**, chọn distribution CloudFront của bạn và chọn **Create records**. Không trỏ record này trực tiếp về ALB.
 5. Bây giờ bạn đã có thể truy cập backend Spring Boot một cách an toàn qua đường dẫn HTTPS: `https://cenframs.tuandat.space/actuator/health`.
+
+---
+
+#### Bước 5: Kiểm thử ứng dụng & Xác minh Lưu trữ tệp tin trên S3
+
+Để xác minh toàn bộ kiến trúc đang hoạt động chính xác (Route 53 -> CloudFront CDN -> ALB -> EC2 Backend -> RDS PostgreSQL & Amazon S3), hãy truy cập ứng dụng giao diện và thực hiện các thao tác kiểm thử.
+
+##### 5.1. Truy cập Trang Đăng nhập của ứng dụng
+Truy cập đường dẫn `https://cenfra-ms.tuandat.space/login`. Bạn sẽ thấy màn hình đăng nhập tập trung của hệ thống **Pizza Five Guys - Central kitchen management** hiển thị thành công.
+
+![Trang đăng nhập ứng dụng](/images/5-Workshop/5.5-Route53-CloudFront/01-login-page.png)
+*Hình 5: Giao diện đăng nhập hệ thống Pizza Five Guys.*
+
+##### 5.2. Trang Tổng quan quản lý (Dashboard)
+Nhập thông tin tài khoản và đăng nhập. Hệ thống sẽ chuyển hướng bạn đến trang Dashboard tổng quan hiển thị các thông tin về tồn kho, đơn hàng hôm nay và danh sách sản phẩm lấy từ cơ sở dữ liệu RDS PostgreSQL.
+
+![Trang tổng quan Dashboard](/images/5-Workshop/5.5-Route53-CloudFront/02-dashboard.png)
+*Hình 6: Giao diện tổng quan hệ thống Bếp trung tâm.*
+
+##### 5.3. Thêm sản phẩm mới và tải ảnh lên S3
+1. Truy cập mục **Sản phẩm** (`/manager/products`).
+2. Chọn **Thêm sản phẩm**. Nhập tên sản phẩm `Sprite lon`, danh mục `Prepared Food`, đơn vị tính `pack`, đơn giá `20000`.
+3. Chọn một ảnh tải lên và chọn **Thêm sản phẩm**.
+
+![Hộp thoại thêm sản phẩm](/images/5-Workshop/5.5-Route53-CloudFront/03-add-product.png)
+*Hình 7: Form nhập thông tin sản phẩm và tải ảnh minh họa.*
+
+##### 5.4. Xác minh sản phẩm tạo thành công
+Sản phẩm vừa tạo sẽ xuất hiện ngay trong danh sách quản lý sản phẩm của hệ thống, xác nhận dữ liệu đã được ghi thành công xuống database PostgreSQL.
+
+![Danh sách sản phẩm mới thêm](/images/5-Workshop/5.5-Route53-CloudFront/04-product-list.png)
+*Hình 8: Danh sách sản phẩm cập nhật món Sprite lon thành công.*
+
+##### 5.5. Xác minh tệp tin ảnh lưu trữ trên Amazon S3
+Nhấp chuột phải vào ảnh sản phẩm vừa thêm và mở trong tab mới. Bạn sẽ thấy địa chỉ URL của ảnh chỉ trực tiếp về S3 bucket của bạn (`https://aws-c8n-s3.s3.us-west-2.amazonaws.com/products/...`). Điều này chứng minh ứng dụng backend đã kết nối và lưu trữ file tĩnh thành công lên Amazon S3.
+
+![URL ảnh trên S3](/images/5-Workshop/5.5-Route53-CloudFront/05-s3-image.png)
+*Hình 9: Ảnh sản phẩm được lưu trữ và tải trực tiếp từ Amazon S3 bucket.*

@@ -4,7 +4,7 @@ date: 2024-01-22
 weight: 4
 chapter: false
 pre: " <b> 1.4. </b> "
-menuTitle: "Tu?n 4"
+menuTitle: "Tuần 4"
 ---
 
 ### Mục tiêu tuần 4:

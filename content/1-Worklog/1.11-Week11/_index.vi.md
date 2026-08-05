@@ -4,7 +4,7 @@ date: 2024-03-11
 weight: 11
 chapter: false
 pre: " <b> 1.11. </b> "
-menuTitle: "Tu?n 11"
+menuTitle: "Tuần 11"
 ---
 
 ### Mục tiêu tuần 11:

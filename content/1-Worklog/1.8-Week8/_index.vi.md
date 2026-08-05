@@ -4,7 +4,7 @@ date: 2024-02-19
 weight: 8
 chapter: false
 pre: " <b> 1.8. </b> "
-menuTitle: "Tu?n 8"
+menuTitle: "Tuần 8"
 ---
 
 ### Mục tiêu tuần 8:

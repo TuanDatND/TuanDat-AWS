@@ -7,21 +7,22 @@ pre: " <b> 6. </b> "
 ---
 
 
-During my internship at **[Company/Organization Name]** from **[start date]** to **[end date]**, I had the opportunity to learn, practice, and apply the knowledge acquired in school to a real-world working environment.  
-I participated in **[briefly describe the main project or task]**, through which I improved my skills in **[list skills: programming, analysis, reporting, communication, etc.]**.  
+During my internship at **First Cloud AI Journey (FCAJ)** from **2026-05-11** to **2026-08-07**, I had a valuable opportunity to immerse myself in a professional working environment, bridging the gap between academic theory and practical engineering. Throughout this period, I engaged in designing and completing AWS hands-on labs, deploying cloud infrastructures, and documenting my technical journey through detailed blogs and weekly worklogs.
 
-In terms of work ethic, I always strived to complete tasks well, complied with workplace regulations, and actively engaged with colleagues to improve work efficiency.
+These experiences significantly elevated my understanding of cloud computing and modernized my technical skill set. I gained practical proficiency in AWS core services, Git & GitHub collaborative workflows, system troubleshooting, and professional documentation. Furthermore, collaborating with my team enhanced my soft skills, including structured communication, proactive problem-solving, and efficient time management. I now feel fully equipped and confident to explore and adopt cutting-edge cloud technologies.
 
-To objectively reflect on my internship period, I would like to evaluate myself based on the following criteria:
+Regarding my work ethic, I maintained a high level of responsibility, strictly adhered to the company's guidelines and schedules, and actively collaborated with mentors and peers to optimize project execution.
+
+To objectively evaluate my performance and milestones during this internship, I have assessed my work using the following framework:
 
 | No. | Criteria                            | Description                                                                                      | Good | Fair | Average |
 | --- | ----------------------------------- | ------------------------------------------------------------------------------------------------ | ---- | ---- | ------- |
-| 1   | **Professional knowledge & skills** | Understanding of the field, applying knowledge in practice, proficiency with tools, work quality | ✅    | ☐    | ☐       |
-| 2   | **Ability to learn**                | Ability to absorb new knowledge and learn quickly                                                | ☐    | ✅    | ☐       |
+| 1   | **Professional knowledge & skills** | Understanding of the field, applying knowledge in practice, proficiency with tools, work quality | ☐    | ✅    | ☐       |
+| 2   | **Ability to learn**                | Ability to absorb new knowledge and learn quickly                                                | ✅    | ☐    | ☐       |
 | 3   | **Proactiveness**                   | Taking initiative, seeking out tasks without waiting for instructions                            | ✅    | ☐    | ☐       |
 | 4   | **Sense of responsibility**         | Completing tasks on time and ensuring quality                                                    | ✅    | ☐    | ☐       |
-| 5   | **Discipline**                      | Adhering to schedules, rules, and work processes                                                 | ☐    | ☐    | ✅       |
-| 6   | **Progressive mindset**             | Willingness to receive feedback and improve oneself                                              | ☐    | ✅    | ☐       |
+| 5   | **Discipline**                      | Adhering to schedules, rules, and work processes                                                 | ✅    | ☐    | ☐       |
+| 6   | **Progressive mindset**             | Willingness to receive feedback and improve oneself                                              | ✅    | ☐    | ☐       |
 | 7   | **Communication**                   | Presenting ideas and reporting work clearly                                                      | ☐    | ✅    | ☐       |
 | 8   | **Teamwork**                        | Working effectively with colleagues and participating in teams                                   | ✅    | ☐    | ☐       |
 | 9   | **Professional conduct**            | Respecting colleagues, partners, and the work environment                                        | ✅    | ☐    | ☐       |
@@ -29,8 +30,11 @@ To objectively reflect on my internship period, I would like to evaluate myself 
 | 11  | **Contribution to project/team**    | Work effectiveness, innovative ideas, recognition from the team                                  | ✅    | ☐    | ☐       |
 | 12  | **Overall**                         | General evaluation of the entire internship period                                               | ✅    | ☐    | ☐       |
 
-### Needs Improvement
+### Future Growth & Continuous Improvement
 
-* Strengthen discipline and strictly comply with the rules and regulations of the company or any organization  
-* Improve problem-solving thinking  
-* Enhance communication skills in both daily interactions and professional contexts, including handling situations effectively
+While I have successfully met all expectations and demonstrated strong capabilities across all evaluation criteria, I remain committed to continuous professional growth:
+* **Advanced Cloud Specialization:** Keep expanding my knowledge of advanced AWS services and cloud architecture patterns beyond the foundational requirements.
+* **Deepening Technical Writing:** Refine my writing styles to produce even more structured, clear, and comprehensive technical guides for the developer community.
+* **Communication & Collaboration:** Further enhance my presentation skills to communicate complex technical concepts more concisely to cross-functional teams.
+* **Proactive Problem-Solving:** Continue honing my analytical skills to approach system design issues from multiple dimensions and optimize cost-efficiency.
+

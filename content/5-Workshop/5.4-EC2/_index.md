@@ -1,9 +1,9 @@
 ---
 title : "EC2"
 date : 2024-01-01
-weight : 3
+weight : 4
 chapter : false
-pre : " <b> 5.3. </b> "
+pre : " <b> 5.4. </b> "
 ---
 
 #### Overview
@@ -25,7 +25,7 @@ The main goals of this section are:
 2. Set the Name and tags to `aws-c8n`.
 3. Select **Amazon Linux 2023** as the Amazon Machine Image (AMI) and set Instance type to `t3.micro`.
 
-![Launch instance basic settings](/images/5-Workshop/5.3-EC2/01-launch-basic.png)
+![Launch instance basic settings](/images/5-Workshop/5.4-EC2/01-launch-basic.png)
 *Figure 1: Setting EC2 name, AMI, and instance type.*
 
 4. Select or create a key pair (e.g., `cenfra-ms`).
@@ -34,7 +34,7 @@ The main goals of this section are:
    * Enable **Auto-assign public IP**.
    * Under **Firewall (security groups)**, choose **Select existing security group** and select the default security group.
 
-![EC2 Network Settings](/images/5-Workshop/5.3-EC2/02-launch-network.png)
+![EC2 Network Settings](/images/5-Workshop/5.4-EC2/02-launch-network.png)
 *Figure 2: Configuring key pair, custom VPC network, and security group.*
 
 ---
@@ -43,38 +43,38 @@ The main goals of this section are:
 
 The EC2 security group controls which traffic is allowed to reach the instance. In this setup, the inbound rules include **HTTP**, **SSH**, **RDP**, and **Custom TCP 8080**. Port 8080 is used by the application container.
 
-![EC2 security group](/images/5-Workshop/5.3-EC2/ec2-security-group.png)
+![EC2 security group](/images/5-Workshop/5.4-EC2/ec2-security-group.png)
 
 #### EC2 instance summary
 
 The backend instance is named **CenFra-MS**. It uses the **t3.micro** instance type and is deployed in the selected VPC and subnet. The instance summary also shows the public IPv4 address, private IPv4 address, public DNS name, and private DNS name.
 
-![EC2 instance summary](/images/5-Workshop/5.3-EC2/ec2-summary.png)
+![EC2 instance summary](/images/5-Workshop/5.4-EC2/ec2-summary.png)
 
 #### Start EC2 instance
 
 After starting the instance, the EC2 console shows **CenFra-MS** in the **Running** state. This confirms that the server is ready for application deployment.
 
-![EC2 running state](/images/5-Workshop/5.3-EC2/ec2-running.png)
+![EC2 running state](/images/5-Workshop/5.4-EC2/ec2-running.png)
 
 #### Connect and install Docker
 
 The instance is accessed through SSH. The terminal shows that the server is running **Amazon Linux 2023**. Docker is installed to run the application in a containerized environment.
 
-![Install Docker](/images/5-Workshop/5.3-EC2/docker-install.png)
+![Install Docker](/images/5-Workshop/5.4-EC2/docker-install.png)
 
 #### Prepare Docker Compose
 
 A working directory is created for the application and a `docker-compose.yml` file is prepared. Docker Compose defines the application service, image, environment file, restart policy, and port mapping for the application.
 
-![Prepare Docker Compose](/images/5-Workshop/5.3-EC2/docker-compose-file.png)
+![Prepare Docker Compose](/images/5-Workshop/5.4-EC2/docker-compose-file.png)
 
 
 #### IAM role support
 
 An IAM role can be created for EC2 by selecting **AWS service** as the trusted entity type and **EC2** as the service use case. This allows EC2 instances to call AWS services without storing long-term access keys on the server.
 
-![IAM EC2 role](/images/5-Workshop/5.3-EC2/iam-ec2-role.png)
+![IAM EC2 role](/images/5-Workshop/5.4-EC2/iam-ec2-role.png)
 
 #### EC2 summary
 

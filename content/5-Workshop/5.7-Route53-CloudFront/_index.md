@@ -1,9 +1,9 @@
 ---
 title : "Route 53 & CloudFront CDN Integration"
 date : 2024-01-01 
-weight: 6 
+weight: 7 
 chapter : false
-pre : " <b> 5.6. </b> "
+pre : " <b> 5.7. </b> "
 ---
 
 #### Step 1: Route 53 Hosted Zone Configuration
@@ -147,13 +147,13 @@ To verify that the entire architecture is working correctly (Route 53 -> CloudFr
 ##### 5.1. Access the Application Login Page
 Go to `https://cenfra-ms.tuandat.space/login`. You will see the centralized login screen for **Pizza Five Guys Central Kitchen Management**.
 
-![Centralized Login Page](/images/5-Workshop/5.6-Route53-CloudFront/01-login-page.png)
+![Centralized Login Page](/images/5-Workshop/5.7-Route53-CloudFront/01-login-page.png)
 *Figure 5: Pizza Five Guys Central Kitchen Management login portal.*
 
 ##### 5.2. Management Dashboard
 Enter your credentials and log in. The application will redirect you to the management dashboard where you can see product status, order summaries, and real-time inventory counts retrieved from the RDS PostgreSQL database.
 
-![Management Dashboard](/images/5-Workshop/5.6-Route53-CloudFront/02-dashboard.png)
+![Management Dashboard](/images/5-Workshop/5.7-Route53-CloudFront/02-dashboard.png)
 *Figure 6: Central Kitchen System overview dashboard.*
 
 ##### 5.3. Add a New Product and Upload Media to S3
@@ -161,17 +161,17 @@ Enter your credentials and log in. The application will redirect you to the mana
 2. Click **Add new product**. Set name to `Sprite lon`, category to `Prepared Food`, unit to `pack`, and price to `20000`.
 3. Choose an image to upload and click **Add product**.
 
-![Add Product Dialog](/images/5-Workshop/5.6-Route53-CloudFront/03-add-product.png)
+![Add Product Dialog](/images/5-Workshop/5.7-Route53-CloudFront/03-add-product.png)
 *Figure 7: Product creation form with image upload.*
 
 ##### 5.4. Verify Product Created Successfully
 The product is listed in the dashboard and product catalog, confirming successful writes to the database.
 
-![Product List](/images/5-Workshop/5.6-Route53-CloudFront/04-product-list.png)
+![Product List](/images/5-Workshop/5.7-Route53-CloudFront/04-product-list.png)
 *Figure 8: Product management catalog showing the newly added product.*
 
 ##### 5.5. Verify Media Files Hosted on S3
 Right-click on the product image and open it in a new tab. You will see that the product image is directly hosted in your Amazon S3 bucket (`https://aws-c8n-s3.s3.us-west-2.amazonaws.com/products/...`). This confirms that the backend application successfully uploads and serves product images using AWS S3.
 
-![S3 Image URL](/images/5-Workshop/5.6-Route53-CloudFront/05-s3-image.png)
+![S3 Image URL](/images/5-Workshop/5.7-Route53-CloudFront/05-s3-image.png)
 *Figure 9: Product image successfully uploaded and served from Amazon S3.*

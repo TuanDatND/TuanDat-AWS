@@ -1,7 +1,7 @@
 ---
 title: "Target Group"
-weight: 4
-pre: " <b> 5.4. </b> "
+weight: 5
+pre: " <b> 5.5. </b> "
 ---
 
 # Configuring a Target Group for Application Load Balancer
@@ -14,7 +14,7 @@ In this section, we will create a **Target Group** to route requests from the Lo
 * On the left navigation pane, scroll down to **Load Balancing** and select **Target Groups**.
 * Click the **Create target group** button to start.
 
-![Create Target Group - Empty Form](/images/5-Workshop/5.4-TargetGroup/Screenshot%202026-07-23%20173205.png)
+![Create Target Group - Empty Form](/images/5-Workshop/5.5-TargetGroup/Screenshot%202026-07-23%20173205.png)
 
 Under **Basic configuration**:
 * **Choose a target type**: Select **Instances** (since we will route traffic directly to EC2 virtual machines).
@@ -24,7 +24,7 @@ Under **Basic configuration**:
 * **VPC**: Make sure to select the VPC where your EC2 instances reside (e.g., `vpc-044c12820d72fc502`).
 * **Protocol version**: Select **HTTP1**.
 
-![Create Target Group - Basic Config](/images/5-Workshop/5.4-TargetGroup/Screenshot%202026-07-28%20101935.png)
+![Create Target Group - Basic Config](/images/5-Workshop/5.5-TargetGroup/Screenshot%202026-07-28%20101935.png)
 
 ### 2. Configure Health Check
 
@@ -32,7 +32,7 @@ Scroll down to the **Health checks** section. This is a crucial step for the Loa
 * **Health check protocol**: Select `HTTP`.
 * **Health check path**: Enter the API path used to ping the backend status. Instead of the default root path `/`, enter the custom path of the project: `/api/health`.
 
-![Health Check Config](/images/5-Workshop/5.4-TargetGroup/Screenshot%202026-07-28%20102528.png)
+![Health Check Config](/images/5-Workshop/5.5-TargetGroup/Screenshot%202026-07-28%20102528.png)
 
 Click **Next** to proceed to the register targets step.
 
@@ -43,7 +43,7 @@ At the **Register targets** step, the system will list the running EC2 instances
 * In the **Ports for the selected instances** field, enter the port your backend application is actually running on (e.g., `8080`).
 * Click the **Include as pending below** button. The instance will appear in the Review targets table below with a *Pending* status.
 
-![Register Targets](/images/5-Workshop/5.4-TargetGroup/Screenshot%202026-07-28%20102707.png)
+![Register Targets](/images/5-Workshop/5.5-TargetGroup/Screenshot%202026-07-28%20102707.png)
 
 ### 4. Review and create
 
@@ -55,4 +55,4 @@ At the final step, review all the configurations:
 
 Once you have confirmed the information is correct, click the **Create target group** button at the bottom.
 
-![Review Target Group](/images/5-Workshop/5.4-TargetGroup/Screenshot%202026-07-28%20102733.png)
+![Review Target Group](/images/5-Workshop/5.5-TargetGroup/Screenshot%202026-07-28%20102733.png)

@@ -1,9 +1,9 @@
 ---
 title : "Load Balancer"
 date : 2024-01-01
-weight: 5
+weight: 6
 chapter : false
-pre : " <b> 5.5. </b> "
+pre : " <b> 5.6. </b> "
 ---
 
 #### Tổng quan
@@ -23,51 +23,51 @@ Các mục tiêu chính của phần này bao gồm:
 
 Một target group có tên **aws-c8n** được tạo với loại target là **Instance**. Giao thức là **HTTP**, cổng đích là **8080**, và phiên bản giao thức là **HTTP1**. Đường dẫn kiểm tra sức khỏe (health check path) là `/swagger-ui/index.html#/` và mã thành công mong đợi là **200**.
 
-![Target group review](/images/5-Workshop/5.5-Load-Balancer/target-group-review.png)
+![Target group review](/images/5-Workshop/5.6-Load-Balancer/target-group-review.png)
 
 #### Đăng ký EC2 target
 
 Máy chủ EC2 **CenFra-MS** đang chạy được chọn làm backend target. Cổng đích được thiết lập là **8080**, khớp với cổng được container ứng dụng sử dụng.
 
-![Register target](/images/5-Workshop/5.5-Load-Balancer/register-target.png)
+![Register target](/images/5-Workshop/5.6-Load-Balancer/register-target.png)
 
 #### Xác minh sức khỏe target
 
 Sau khi target được đăng ký, target group hiển thị **1 healthy target** (1 đích khỏe mạnh) và **0 unhealthy targets** (0 đích không khỏe mạnh). Điều này xác nhận rằng bộ cân bằng tải có thể chuyển tiếp lưu lượng truy cập đến máy chủ backend thành công.
 
-![Healthy target group](/images/5-Workshop/5.5-Load-Balancer/target-group-healthy.png)
+![Healthy target group](/images/5-Workshop/5.6-Load-Balancer/target-group-healthy.png)
 
 #### Chọn loại Load Balancer
 
 AWS cung cấp một số loại load balancer. Đối với hệ thống này, **Application Load Balancer** được chọn vì ứng dụng sử dụng giao thức HTTP. ALB phù hợp cho các ứng dụng web, API, microservices và các dịch vụ chạy trên container.
 
-![Load balancer types](/images/5-Workshop/5.5-Load-Balancer/lb-types.png)
+![Load balancer types](/images/5-Workshop/5.6-Load-Balancer/lb-types.png)
 
 #### Cấu hình Application Load Balancer
 
 Application Load Balancer được đặt tên là **c8n-aws-ALB**. Nó được cấu hình ở chế độ **Internet-facing** (hướng Internet), nghĩa là nó có thể tiếp nhận lưu lượng truy cập từ mạng internet công cộng. Loại địa chỉ IP là **IPv4**.
 
-![ALB basic configuration](/images/5-Workshop/5.5-Load-Balancer/alb-basic-config.png)
+![ALB basic configuration](/images/5-Workshop/5.6-Load-Balancer/alb-basic-config.png)
 
 Bộ cân bằng tải được ánh xạ tới VPC được chọn và bốn public subnet trên bốn Availability Zones khác nhau. Điều này giúp nâng cao tính sẵn sàng vì bộ cân bằng tải có thể tiếp nhận và định tuyến lưu lượng qua nhiều zone.
 
-![ALB network mapping](/images/5-Workshop/5.5-Load-Balancer/alb-network-mapping.png)
+![ALB network mapping](/images/5-Workshop/5.6-Load-Balancer/alb-network-mapping.png)
 
 #### Cấu hình listener và định tuyến
 
 Bộ cân bằng tải lắng nghe trên cổng **HTTP:80**. Hành động định tuyến mặc định sẽ chuyển tiếp (forward) các yêu cầu tới target group **aws-c8n** với trọng số lưu lượng là 100%.
 
-![ALB listener](/images/5-Workshop/5.5-Load-Balancer/alb-listener.png)
+![ALB listener](/images/5-Workshop/5.6-Load-Balancer/alb-listener.png)
 
 Trước khi khởi tạo bộ cân bằng tải, trang xem lại (review) xác nhận các thiết lập cuối cùng: chế độ internet-facing, loại IP IPv4, VPC đã chọn, bốn subnets, security group và listener HTTP chuyển tiếp đến một target group.
 
-![ALB review](/images/5-Workshop/5.5-Load-Balancer/alb-review.png)
+![ALB review](/images/5-Workshop/5.6-Load-Balancer/alb-review.png)
 
 #### Cấu hình Security Group cho Load Balancer
 
 Security Group của load balancer cho phép lưu lượng truy cập đầu vào **HTTP** trên cổng **80** từ mọi địa chỉ (`0.0.0.0/0`). Quy tắc này cho phép người dùng trên internet truy cập ứng dụng thông qua tên miền DNS của ALB.
 
-![ALB security group](/images/5-Workshop/5.5-Load-Balancer/alb-security-group.png)
+![ALB security group](/images/5-Workshop/5.6-Load-Balancer/alb-security-group.png)
 
 {{% notice note %}}
 Đối với môi trường chạy thực tế (production), các quy tắc đầu vào nên được hạn chế tối đa. Việc cho phép truy cập HTTP công cộng là chấp nhận được đối với một bài thực hành workshop, nhưng HTTPS và các cơ chế kiểm soát truy cập chặt chẽ hơn được khuyến nghị cho các hệ thống thực tế.
@@ -77,7 +77,7 @@ Security Group của load balancer cho phép lưu lượng truy cập đầu và
 
 Sau khi khởi tạo, console EC2 hiển thị trạng thái của **c8n-aws-ALB** là **Active**. Loại bộ cân bằng tải là **Application**, chế độ là **Internet-facing**, và AWS cấp một tên miền DNS (DNS name) để máy khách truy cập.
 
-![Active ALB](/images/5-Workshop/5.5-Load-Balancer/alb-active.png)
+![Active ALB](/images/5-Workshop/5.6-Load-Balancer/alb-active.png)
 
 #### Tổng kết phần Load Balancer
 

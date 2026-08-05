@@ -20,9 +20,10 @@ The application follows the architecture below:
 
 #### Main Goals
 
-* **Step 5.3 (EC2 Deployment)**: Launch an Amazon EC2 instance, install Docker & Docker Compose, and pull the CenFra-MS backend container.
-* **Step 5.4 (Target Group)**: Create an EC2 Target Group pointing to port `8080` with a customized health check path `/api/health`.
-* **Step 5.5 (Application Load Balancer)**: Provision an ALB to balance public HTTP traffic and forward requests to the Target Group.
-* **Step 5.6 (Route 53 & CloudFront CDN Integration)**: Configure DNS resolution and CloudFront CDN with SSL termination for secure HTTPS delivery.
-* **Step 5.7 (Amazon CloudWatch Logs & Monitoring)**: Set up log shipping from Docker containers on EC2 to Amazon CloudWatch for centralized monitoring.
-* **Step 5.8 (Resource Clean Up)**: Terminate resources to prevent unnecessary AWS charges.
+* **Step 5.3 (RDS Database)**: Provision an Amazon RDS PostgreSQL DB instance with Password + IAM authentication for backend data storage.
+* **Step 5.4 (EC2 Deployment)**: Launch an Amazon EC2 instance, install Docker & Docker Compose, and pull the CenFra-MS backend container.
+* **Step 5.5 (Target Group)**: Create an EC2 Target Group pointing to port `8080` with a customized health check path `/api/health`.
+* **Step 5.6 (Application Load Balancer)**: Provision an ALB to balance public HTTP traffic and forward requests to the Target Group.
+* **Step 5.7 (Route 53 & CloudFront CDN Integration)**: Configure DNS resolution and CloudFront CDN with SSL termination for secure HTTPS delivery.
+* **Step 5.8 (Amazon CloudWatch Logs & Monitoring)**: Set up log shipping from Docker containers on EC2 to Amazon CloudWatch for centralized monitoring.
+* **Step 5.9 (Resource Clean Up)**: Terminate resources to prevent unnecessary AWS charges.

@@ -1,7 +1,7 @@
 ---
 title: "Target Group"
-weight: 4
-pre: " <b> 5.4. </b> "
+weight: 5
+pre: " <b> 5.5. </b> "
 ---
 
 # Cấu hình Target Group cho Application Load Balancer
@@ -14,7 +14,7 @@ Trong phần này, chúng ta sẽ tạo một **Target Group** (Nhóm mục tiê
 * Ở thanh điều hướng bên trái, cuộn xuống phần **Load Balancing** và chọn **Target Groups**.
 * Nhấp vào nút **Create target group** để bắt đầu.
 
-![Khởi tạo Target Group - Form trống](/images/5-Workshop/5.4-TargetGroup/Screenshot%202026-07-23%20173205.png)
+![Khởi tạo Target Group - Form trống](/images/5-Workshop/5.5-TargetGroup/Screenshot%202026-07-23%20173205.png)
 
 Tại phần **Basic configuration**:
 * **Choose a target type**: Chọn **Instances** (định tuyến lưu lượng truy cập trực tiếp tới các máy ảo EC2).
@@ -24,7 +24,7 @@ Tại phần **Basic configuration**:
 * **VPC**: Đảm bảo chọn đúng VPC nơi các phiên bản EC2 của bạn đang chạy (ví dụ: `vpc-044c12820d72fc502`).
 * **Protocol version**: Chọn **HTTP1**.
 
-![Khởi tạo Target Group - Cấu hình cơ bản](/images/5-Workshop/5.4-TargetGroup/Screenshot%202026-07-28%20101935.png)
+![Khởi tạo Target Group - Cấu hình cơ bản](/images/5-Workshop/5.5-TargetGroup/Screenshot%202026-07-28%20101935.png)
 
 ### 2. Cấu hình Health Check
 
@@ -32,7 +32,7 @@ Cuộn xuống phần **Health checks**. Đây là một bước quan trọng đ
 * **Health check protocol**: Chọn `HTTP`.
 * **Health check path**: Nhập đường dẫn API dùng để kiểm tra trạng thái hoạt động của backend. Thay vì đường dẫn gốc mặc định `/`, hãy nhập đường dẫn tùy chỉnh của dự án: `/api/health`.
 
-![Cấu hình Health Check](/images/5-Workshop/5.4-TargetGroup/Screenshot%202026-07-28%20102528.png)
+![Cấu hình Health Check](/images/5-Workshop/5.5-TargetGroup/Screenshot%202026-07-28%20102528.png)
 
 Nhấn **Next** để chuyển sang bước đăng ký các mục tiêu.
 
@@ -43,7 +43,7 @@ Tại bước **Register targets**, hệ thống sẽ liệt kê các phiên b�
 * Tại ô **Ports for the selected instances**, nhập cổng mà ứng dụng backend thực tế đang chạy trên EC2 (ví dụ: `8080`).
 * Nhấn nút **Include as pending below**. Phiên bản sẽ xuất hiện ở bảng Review targets phía dưới với trạng thái *Pending*.
 
-![Đăng ký Mục tiêu](/images/5-Workshop/5.4-TargetGroup/Screenshot%202026-07-28%20102707.png)
+![Đăng ký Mục tiêu](/images/5-Workshop/5.5-TargetGroup/Screenshot%202026-07-28%20102707.png)
 
 ### 4. Kiểm tra lại và khởi tạo (Review and create)
 
@@ -55,7 +55,7 @@ Tại bước cuối cùng, hãy xem lại tất cả các thông số cấu hì
 
 Sau khi xác nhận các thông tin đã chính xác, nhấn nút **Create target group** ở góc dưới cùng.
 
-![Kiểm tra và Khởi tạo Target Group](/images/5-Workshop/5.4-TargetGroup/Screenshot%202026-07-28%20102733.png)
+![Kiểm tra và Khởi tạo Target Group](/images/5-Workshop/5.5-TargetGroup/Screenshot%202026-07-28%20102733.png)
 
 ---
 *(Lưu ý: Hình ảnh cuối cùng `Screenshot 2026-07-28 102832.png` hiển thị màn hình Load Balancers trống, cho thấy bước tiếp theo của đội ngũ sẽ là tạo một Load Balancer và liên kết Target Group vừa tạo này vào đó).*

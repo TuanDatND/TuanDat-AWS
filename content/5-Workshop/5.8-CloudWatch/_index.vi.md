@@ -1,9 +1,9 @@
 ---
 title: "Cấu hình Amazon CloudWatch Logs"
 date: 2026-07-28
-weight: 7
+weight: 8
 chapter: false
-pre: "<b> 5.7. </b>"
+pre: "<b> 5.8. </b>"
 ---
 
 # Giám sát log ứng dụng EC2 bằng Amazon CloudWatch

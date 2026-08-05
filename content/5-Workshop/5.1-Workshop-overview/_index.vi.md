@@ -20,9 +20,10 @@ Hệ thống tuân thủ theo sơ đồ kiến trúc dưới đây:
 
 #### Các mục tiêu chính
 
-* **Bước 5.3 (Triển khai EC2)**: Khởi tạo máy chủ EC2, cài đặt Docker & Docker Compose và chạy container backend CenFra-MS.
-* **Bước 5.4 (Target Group)**: Khởi tạo nhóm mục tiêu Target Group hướng về cổng `8080` của EC2 kèm cấu hình đường dẫn health check tùy chỉnh `/api/health`.
-* **Bước 5.5 (Application Load Balancer)**: Cấu hình bộ cân bằng tải ALB để phân phối lưu lượng truy cập HTTP đến nhóm mục tiêu.
-* **Bước 5.6 (Tích hợp Route 53 & CloudFront CDN)**: Định tuyến tên miền tùy chỉnh và cấu hình CDN phân phối nội dung bảo mật qua HTTPS.
-* **Bước 5.7 (Giám sát Logs qua CloudWatch)**: Cấu hình đẩy logs container Docker từ EC2 về Amazon CloudWatch Logs để giám sát tập trung.
-* **Bước 5.8 (Dọn dẹp tài nguyên)**: Giải phóng và xóa bỏ các tài nguyên AWS đã tạo để tránh phát sinh chi phí.
+* **Bước 5.3 (Cơ sở dữ liệu RDS)**: Khởi tạo cơ sở dữ liệu Amazon RDS PostgreSQL cấu hình xác thực kết hợp Password và IAM để lưu trữ dữ liệu backend.
+* **Bước 5.4 (Triển khai EC2)**: Khởi tạo máy chủ EC2, cài đặt Docker & Docker Compose và chạy container backend CenFra-MS.
+* **Bước 5.5 (Target Group)**: Khởi tạo nhóm mục tiêu Target Group hướng về cổng `8080` của EC2 kèm cấu hình đường dẫn health check tùy chỉnh `/api/health`.
+* **Bước 5.6 (Application Load Balancer)**: Cấu hình bộ cân bằng tải ALB để phân phối lưu lượng truy cập HTTP đến nhóm mục tiêu.
+* **Bước 5.7 (Tích hợp Route 53 & CloudFront CDN)**: Định tuyến tên miền tùy chỉnh và cấu hình CDN phân phối nội dung bảo mật qua HTTPS.
+* **Bước 5.8 (Giám sát Logs qua CloudWatch)**: Cấu hình đẩy logs container Docker từ EC2 về Amazon CloudWatch Logs để giám sát tập trung.
+* **Bước 5.9 (Dọn dẹp tài nguyên)**: Giải phóng và xóa bỏ các tài nguyên AWS đã tạo để tránh phát sinh chi phí.

@@ -55,16 +55,17 @@
                   value="{{ $translation.Permalink }}"
                   selected
                 >
-                  {{ .LanguageName }}
+                  {{ or .Label (or .LanguageName .Lang) }}
                 </option>
                 {{ else }}
                 <option
                   id="{{ $translation.Language }}"
                   value="{{ $translation.Permalink }}"
                 >
-                  {{ .LanguageName }}
+                  {{ or .Label (or .LanguageName .Lang) }}
                 </option>
                 {{ end }} {{ end }} {{ end }} {{ end }}
+
               </select>
               <svg
                 version="1.1"

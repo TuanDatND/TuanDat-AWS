@@ -44,6 +44,10 @@ The competition also made the event more interactive and motivated me to continu
 ![Cloud Architect Challenge](/images/4-EventParticipated/4.1-Event1/cloud-architect.png)
 *Figure 1: Teams participating in the interactive Cloud Architect Challenge.*
 
+![Me at Event](/images/4-EventParticipated/4.1-Event1/me.png)
+*Figure 2: Me participating in the event.*
+
+
 ---
 
 > Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.

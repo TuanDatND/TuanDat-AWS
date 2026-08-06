@@ -44,6 +44,10 @@ Cuộc thi cũng làm cho sự kiện trở nên tương tác hơn và thúc đ�
 ![Cloud Architect Challenge](/images/4-EventParticipated/4.1-Event1/cloud-architect.png)
 *Hình 1: Các đội nhóm thảo luận nhiệt tình trong cuộc thi Cloud Architect Challenge.*
 
+![Me at Event](/images/4-EventParticipated/4.1-Event1/me.png)
+*Hình 2: Tôi tham gia sự kiện cùng mọi người.*
+
+
 ---
 
 > Nhìn chung, sự kiện không chỉ cung cấp các kiến thức kỹ thuật mà còn giúp tôi thay đổi cách tư duy về thiết kế ứng dụng, hiện đại hóa hệ thống và phối hợp hiệu quả hơn giữa các phòng ban.
